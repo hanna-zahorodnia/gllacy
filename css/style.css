@@ -18,6 +18,10 @@ body {
   transition: background-image 0.5s ease, background-color 0.5s ease;
 }
 
+.site-wrapper-inner {
+  background-color: #849d8f;
+}
+
 .site-wrapper::before,
 .site-wrapper::after {
   content: "";
@@ -218,7 +222,11 @@ a {
 }
 
 .site-navigation li:hover .sub-menu,
-.site-navigation li:focus-within .sub-menu {
+.site-navigation li:focus-within .sub-menu,
+.user-navigation li:first-child:hover .nav-search,
+.user-navigation li:first-child:focus-within .nav-search,
+.user-navigation li:nth-child(2):hover .login-form,
+.user-navigation li:nth-child(2):focus-within .login-form {
   display: block;
 }
 
@@ -239,7 +247,8 @@ a {
   color: #fff;
 }
 
-.user-navigation li:first-child {
+.user-navigation li:first-child,
+.user-navigation li:nth-child(2) {
   position: relative;
 }
 
@@ -295,11 +304,6 @@ a {
   color: #999999;
 }
 
-.user-navigation li:first-child:hover .nav-search,
-.user-navigation li:first-child:focus-within .nav-search {
-  display: block;
-}
-
 .user-navigation .login {
   display: block;
   position: relative;
@@ -308,6 +312,43 @@ a {
 
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 25px;
+}
+
+.login-form {
+  display: none;
+  position: absolute;
+
+  z-index: 10;
+  top: 35px;
+  right: 16px;
+  width: 277px;
+
+  padding: 20px 15px 20px 20px;
+
+  background-color: #f8f7f4;
+
+  box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.4); 
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.login-item {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.login-item input::placeholder {
+  color: #999999;
+}
+
+.login-input {
+  box-sizing: border-box;
+  width: 241px;
+
+  padding: 12px;
+
+  border: 1px solid rgba(178, 178, 178, 0.5);
+  border-radius: 5px;
 }
 
 .user-navigation .login::before {
@@ -335,6 +376,30 @@ a {
   background-image: url("../img/entrance-hover.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
+}
+
+.login-group {
+  display: flex;
+}
+
+.login-link-group {
+  order: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.login-link-group a {
+  color: #323232;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 21px;
+
+  text-decoration: underline;
+}
+
+.login-button {
+  margin-right: 27px;
 }
 
 .user-navigation .cart {
@@ -728,7 +793,8 @@ a {
   text-decoration: underline;
 }
 
-.article-title:hover {
+.article-title:hover,
+.login-link-group a:hover {
   color: #e84d37;
 }
 
@@ -903,9 +969,6 @@ a {
   fill: rgba(255, 255, 255, 0.7);
 }
 
-
-
-
 .footer-suppliers {
   display: flex;
   flex-wrap: wrap;
@@ -992,6 +1055,149 @@ a {
 .developer-logo svg {
   fill: #edebeb;
 }
+
+/* Modal form */
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-2000px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.modal {
+  display: none;
+
+  position: fixed;
+  top: 180px;
+  left: 50%;
+  margin-left: -239px;
+
+  width: 478px;
+  padding: 15px 25px 26px;
+
+  background-color: #f8f7f4;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+}
+
+.modal-show {
+  display: block;
+
+  animation: bounce 0.6s;
+}
+
+.modal-error {
+  animation: shake 0.6s;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  width: 18px;
+  height: 17px;
+
+  font-size: 0;
+
+  background-color: transparent;
+  background-image: url("../img/cross-big.svg");
+  background-repeat: no-repeat;
+  border: 0;
+
+  cursor: pointer;
+}
+
+.contact-us {
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+
+  color: #323232;
+}
+
+.contact-item input::placeholder,
+.contact-item textarea::placeholder {
+  color: #999999;
+}
+
+.contact-item {
+  margin-bottom: 22px;
+}
+
+.contact-item-input {
+  box-sizing: border-box;
+  width: 267px;
+
+  padding: 11px 15px;
+
+  border: 1px solid rgba(178, 178, 178, 0.5);
+  border-radius: 5px;
+}
+
+.contact-item textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 10px 15px;
+
+  border: 1px solid rgba(178, 178, 178, 0.5);
+  border-radius: 5px;
+}
+
+.contact-item-input:hover,
+.contact-item textarea:hover,
+.login-input:hover {
+  box-shadow: 0 0 0 2px rgba(154, 154, 154, 0.5) inset;
+}
+
+.contact-item-input:focus,
+.contact-item textarea:focus,
+.login-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(46, 136, 228, 0.5) inset;
+}
+
+.modal-button {
+  float: right;
+}
+
+/* Styles for catalog.html */
+
+
+
+
+
 
 
 

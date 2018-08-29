@@ -40,7 +40,25 @@
                 <input type="search" name="navigation-search" id="search-input" placeholder="Что ищем?">
               </form>
             </li>
-  	  	    <li><a class="login" href="#">Вход</a></li>
+  	  	    <li><a class="login" href="#">Вход</a>
+              <form class="login-form" action="https://echo.htmlacademy.ru" method="post">
+                <p class="login-item">
+                  <label class="visuallyhidden" for="user-email">Логин</label>
+                  <input class="login-input" id="user-email" type="email" name="email" placeholder="Электронная почта">
+                </p>
+                <p class="login-item">
+                  <label class="visuallyhidden" for="user-password">Пароль</label>
+                  <input class="login-input" id="user-password" type="password" name="password" placeholder="Пароль">
+                </p>
+                <div class="login-group">
+                  <div class="login-link-group">
+                    <a class="restore" href="#">Забыли пароль?</a>
+                    <a class="signup" href="#">Новая регистрация</a>
+                  </div>
+                  <button class="button login-button" type="submit">Войти</button>
+                </div>
+              </form>
+            </li>
   	  	    <li><a class="cart" href="#">Пусто</a><span class="visuallyhidden">Корзина</span></li>
   	      </ul>
   	    </nav>
@@ -193,41 +211,26 @@
         <div class="contact-item-group">
           <div class="contact-item">
             <label for="name-field" class="visuallyhidden">Ваше имя:</label>
-            <input id="name-field" type="text" name="name" value="" placeholder="Как вас зовут?">
+            <input class="contact-item-input" id="name-field" type="text" name="name" value="" placeholder="Как вас зовут?">
           </div>
           <div class="contact-item">
             <label for="email-field" class="visuallyhidden">Ваш e-mail:</label>
-            <input id="email-field" type="text" name="email" value="" placeholder="Ваша почта для ответа?">
+            <input class="contact-item-input"id="email-field" type="text" name="email" value="" placeholder="Ваша почта для ответа?">
           </div>
         </div>
         <div class="contact-item">
           <label for="comment-field" class="visuallyhidden">Текст письма:</label>
-          <textarea id="comment-field" name="comment" rows="5" placeholder="Напишите что-нибудь..."></textarea>
+          <textarea id="comment-field" name="comment" rows="7" placeholder="Напишите что-нибудь..."></textarea>
         </div>
         <button class="button modal-button" type="submit">Отправить</button>
       </form>
       <button class="modal-close" type="button">Закрыть</button>
     </section>
 
-    <section class="modal-login">
-      <h2 class="visuallyhidden">Личный кабинет</h2>
-      <form class="login-form" action="https://echo.htmlacademy.ru" method="post">
-        <p>
-          <label class="visuallyhidden" for="user-email">Логин</label>
-          <input class="login-input" id="user-email" type="email" name="email" placeholder="Электронная почта">
-        </p>
-        <p>
-          <label class="visuallyhidden" for="user-password">Пароль</label>
-          <input class="login-input" id="user-password" type="password" name="password" placeholder="Пароль">
-        </p>
-        <a class="restore" href="#">Забыли пароль?</a>
-        <a class="signup" href="#">Новая регистрация</a>
-        <button class="button" type="submit">Войти</button>
-      </form>
-    </section>
-
     </div>
   </div>
+
+  <script src="js/script.js"></script>
 
   </body>
 
